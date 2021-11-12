@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">LearnKotlin</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="sign_in_btn">Sign In</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="sign_up_btn">Sign Up</string>
+    <string name="create_new_account">Create New Account</string>
+    <string name="submit_btn">Submit</string>
+    <string name="back_to_sign_in">Back to Sign In</string>
+    <string name="name">Name</string>
+    <string name="learn_kotlin">Learn \n Kotlin</string>
+    <string name="learn_more">Learn More</string>
+
+    <string name="topic_title_1">Android Basics in Kotlin</string>
+    <string name="topic_title_2">Jetpack Compose</string>
+    <string name="topic_title_3">Kotlin coroutines</string>
+    <string name="topic_title_4">Advanced Android Development</string>
+
+    <string name="topic_description_1">Welcome to Android Basics in Kotlin! In this course, you will learn the basics....</string>
+    <string name="topic_description_2">Get started with Jetpack Compose, a modern toolkit for building Android UI.</string>
+    <string name="topic_description_3">Use coroutines to simplify task management for commons use cases....</string>
+    <string name="topic_description_4">Expand the user experience, improve app performance, and add features like....</string>
+
+    <string name="topic_difficulty_1">Training Level: Beginner</string>
+    <string name="topic_difficulty_2">Training Level: Intermediate</string>
+    <string name="topic_difficulty_3">Training Level:  Intermediate</string>
+    <string name="topic_difficulty_4">Training Level:  Advanced</string>
+    <string name="forgot_password_description">We will send you an email with instructions on resetting your password. \n This may take up to 15 minutes</string>
+    <string name="reset_your_password">Reset your password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+
+    <string name="description_format">%1$s\n\n%2$s</string>
+    <string name="sign_out">SIGN OUT?</string>
+    <string name="no">NO</string>
+    <string name="yes">YES</string>
+    <string name="sign_out_txt">Sign Out</string>
+    <string name="welcome">Welcome,</string>
+    <string name="welcome_note">We are glad to have you here.\n Please select from our different range of courses.</string>
+    <string name="share_note">You can learn more by visiting https://developer.android.com/course</string>
+</resources>
