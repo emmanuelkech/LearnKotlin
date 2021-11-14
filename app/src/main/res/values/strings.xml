@@ -41,6 +41,7 @@
     <string name="yes">YES</string>
     <string name="sign_out_txt">Sign Out</string>
     <string name="welcome">Welcome,</string>
-    <string name="welcome_note">We are glad to have you here.\n Please select from our different range of courses.</string>
+    <string name="welcome_note">We are glad to have you here.\n\n Please select from our different range of courses.</string>
     <string name="share_note">You can learn more by visiting https://developer.android.com/course</string>
+    <string name="do_you_want_to_sign_out">Do you want to sign out?</string>
 </resources>

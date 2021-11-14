@@ -4,55 +4,80 @@
     <data>
 
         <variable
-            name="topicModel"
-            type="com.kodecamp.learnkotlin.model.TopicModel" />
+            name="topicDetails"
+            type="com.kodecamp.learnkotlin.fragments.TopicDetailsFragment" />
     </data>
 
-    <ScrollView xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
-        tools:ignore="RtlHardcoded">
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/title"
-                style="@style/TextAppearance.AppCompat.Title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_24sdp"
-                android:layout_marginBottom="0dp"
-                android:text="@{topicModel.title}" />
+            android:layout_height="@dimen/_40sdp"
+            android:orientation="horizontal"
+            android:padding="@dimen/_10sdp">
 
             <ImageView
-                android:id="@+id/topic_image"
-                imageResource="@{topicModel.imageResId}"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_200sdp"
-                android:layout_marginTop="@dimen/_24sdp"
-                android:layout_marginBottom="@dimen/_24sdp"
-                android:adjustViewBounds="true"
-                android:contentDescription="@null"
-                android:scaleType="centerCrop" />
-
-            <TextView
-                android:id="@+id/description"
-                style="@style/TextAppearance.AppCompat.Body1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/_32sdp"
-                android:layout_marginTop="0dp"
-                android:layout_marginRight="@dimen/_24sdp"
-                android:layout_marginBottom="@dimen/_16sdp"
-                android:autoLink="web"
-                android:text="@{topicModel.text}" />
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:src="@drawable/ic_back"
+                android:importantForAccessibility="no"
+                android:onClick="@{() -> topicDetails.goBack()}"/>
 
         </LinearLayout>
 
-    </ScrollView>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/title"
+                    style="@style/TextAppearance.AppCompat.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_20ssp"
+                    android:layout_marginTop="@dimen/_24sdp"
+                    android:layout_marginBottom="0dp"/>
+
+                <ImageView
+                    android:id="@+id/topic_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_200sdp"
+                    android:layout_marginTop="@dimen/_24sdp"
+                    android:layout_marginBottom="@dimen/_24sdp"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@null"
+                    android:scaleType="centerCrop"/>
+
+                <TextView
+                    android:id="@+id/details"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/_24sdp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginRight="@dimen/_24sdp"
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:textSize="@dimen/_14ssp"
+                    android:fontFamily="@font/sf_pro_rounded_regular"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+
 </layout>

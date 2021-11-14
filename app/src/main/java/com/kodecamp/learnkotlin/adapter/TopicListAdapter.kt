@@ -1,27 +1,40 @@
 package com.kodecamp.learnkotlin.adapter
 
-import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.kodecamp.learnkotlin.R
 import com.kodecamp.learnkotlin.databinding.TopicListItemBinding
-import com.kodecamp.learnkotlin.fragments.TopicDetailsFragment
-import com.kodecamp.learnkotlin.fragments.TopicListFragment
-import com.kodecamp.learnkotlin.model.TopicModel
 
-class TopicListAdapter(private val context: TopicListFragment, private val itemList: List<TopicModel> ) : RecyclerView.Adapter<TopicListAdapter.ViewHolder>()
+class TopicListAdapter : RecyclerView.Adapter<TopicListAdapter.ViewHolder>()
 {
 
-    class ViewHolder(binding: TopicListItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        val topicImage : ImageView = binding.topicImage
-        val topicTitle : TextView = binding.topicTitle
-        val topicDescription : TextView = binding.topicDescription
-        val topicDifficulty : TextView = binding.topicDifficulty
+    companion object {
+        var topicTitles = arrayListOf("Android Basics in Kotlin",
+            "Jetpack Compose", "Kotlin coroutines", "Advanced Android Development")
+
+        var topicDescriptions = arrayListOf("Welcome to Android Basics in Kotlin! In this course, you will learn the basics....",
+            "Get started with Jetpack Compose, a modern toolkit for building Android UI.",
+            "Use coroutines to simplify task management for commons use cases....",
+            "Expand the user experience, improve app performance, and add features like....")
+
+        var topicDifficulty = arrayListOf("Training Level: Beginner", "Training Level: Intermediate",
+            "Training Level: Intermediate", "Training Level:  Advanced")
+
+        var topicDetails = arrayListOf("Welcome to Android Basics in Kotlin! In this course, you'll learn the basics" +
+                " of building Android apps with the Kotlin programming language. Along the way, you'll develop a collection of" +
+                " apps to start your journey as an Android developer.\n\n Learn more at https://developer.android.com/courses/android-basics-kotlin/course",
+            "Jetpack Compose is Android’s modern toolkit for building native UI. It simplifies and accelerates UI development" +
+                    " on Android. Quickly bring your app to life with less code, powerful tools, and intuitive Kotlin APIs.\n\n" +
+                    "Learn more at https://developer.android.com/jetpack/compose",
+            "Learn to use coroutines to simplify background task management in common use cases, such as making network calls" +
+                    " and accessing local data.\n\n Learn more at https://developer.android.com/courses/pathways/android-coroutines?hl=nl", "Take your Android coding skills to the next level in our free, self-paced" +
+                    " Advanced Android Development training. The course uses the Java programming language and teaches you ways" +
+                    " to expand the user experience, improve app performance, and add features like custom views, animations" +
+                    ", and location-awareness. \n\n Learn more at https://developer.android.com/courses/advanced-training/overview")
+        val topicImage = arrayListOf(R.drawable.img_1, R.drawable.img_2, R.drawable.img_3, R.drawable.img_4)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -31,20 +44,30 @@ class TopicListAdapter(private val context: TopicListFragment, private val itemL
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        val topic = itemList[position]
-        holder.apply {
-            topicImage.setImageResource(topic.imageResId)
-            topicTitle.text = context.resources.getString(topic.title)
-            topicDescription.text = context.resources.getString(topic.description)
-            topicDifficulty.text = context.resources.getString(topic.difficulty)
-            itemView.setOnClickListener { p0 ->
-                val activity = p0?.context as AppCompatActivity
-                val topicDetails = TopicDetailsFragment()
-                activity.supportFragmentManager.beginTransaction()
-                    .replace(R.id.root_layout, topicDetails).addToBackStack(null).commit()
+        holder.allViews(position)
+    }
+
+    override fun getItemCount() = topicTitles.size
+
+    class ViewHolder(private val binding: TopicListItemBinding) : RecyclerView.ViewHolder(binding.root) {
+
+        fun allViews(position: Int) {
+            binding.topicTitle.text = topicTitles[position]
+            binding.topicDescription.text = topicDescriptions[position]
+            binding.topicDifficulty.text = topicDifficulty[position]
+            binding.topicImage.setImageResource(topicImage[position])
+
+            binding.topicHolder.setOnClickListener {
+                val title = topicTitles[position]
+                val details = topicDetails[position]
+                val image = topicImage[position]
+
+                val bundle = Bundle()
+                bundle.putString("TITLE", title)
+                bundle.putString("DETAILS", details)
+                bundle.putInt("IMAGE", image)
+                Navigation.findNavController(binding.root).navigate(R.id.action_topicListFragment_to_topicDetailsFragment, bundle)
             }
         }
     }
-
-    override fun getItemCount() = itemList.size
 }

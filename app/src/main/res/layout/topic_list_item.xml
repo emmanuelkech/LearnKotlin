@@ -8,7 +8,8 @@
             type="com.kodecamp.learnkotlin.model.TopicModel" />
     </data>
 
-    <androidx.cardview.widget.CardView xmlns:tools="http://schemas.android.com/tools"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/topicHolder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_4sdp">

@@ -9,10 +9,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.kodecamp.learnkotlin.R
 import com.kodecamp.learnkotlin.adapter.TopicListAdapter
-import com.kodecamp.learnkotlin.data.TopicSource
 import com.kodecamp.learnkotlin.databinding.FragmentTopicListBinding
 
 class TopicListFragment : Fragment() {
@@ -35,10 +33,10 @@ class TopicListFragment : Fragment() {
         }
 
         val activity = activity as Context
-        val myDataSet = TopicSource().loadTopics()
-        val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
-        recyclerView.layoutManager = LinearLayoutManager(activity)
-        recyclerView.adapter = TopicListAdapter(this, myDataSet )
+
+        val recyclerView = binding?.recyclerView
+        recyclerView?.layoutManager = LinearLayoutManager(activity)
+        recyclerView?.adapter = TopicListAdapter()
     }
 
     fun signOut() {
